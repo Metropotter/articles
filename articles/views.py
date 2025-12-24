@@ -4,7 +4,6 @@ from .models import Article
 from .forms import ArticleForm
 from django.conf import settings
 
-# 1. Список ваших статей
 def article_list(request):
     articles = Article.objects.all().order_by('-created_at')
     return render(request, 'articles/list.html', {'articles': articles})
@@ -26,13 +25,12 @@ def article_edit(request, pk):
         return redirect('article_list')
     return render(request, 'articles/form.html', {'form': form, 'article': article})
 
-# 4. БОНУС: Новости РФ из внешнего API
 def external_news(request):
     # Берем ключ из settings.py
     api_key = settings.NEWS_API_KEY 
     
     # URL для получения топовых новостей России
-    url = f'https://newsapi.org/v2/top-headlines?country=ru&apiKey={api_key}'
+    url = f'https://newsapi.org/v2/top-headlines?country=us&apiKey={api_key}'
     
     try:
         response = requests.get(url)

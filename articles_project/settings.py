@@ -21,7 +21,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-40ehdb)i@e5t*9a+od2ckuj9$6%%1r4!a$j#%ys(5!4u62r4@h'
-NEWS_API_KEY ='ae4f3c4b53b44215966165eefb065710'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -123,3 +122,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+NEWS_API_KEY ='ae4f3c4b53b44215966165eefb065710'
