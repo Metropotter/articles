@@ -1,0 +1,11 @@
+<h1>Свежие новости России</h1>
+<a href="{% url 'article_list' %}">К моим статьям</a>
+<hr>
+{% for item in news %}
+    <div>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.description }}</p>
+        <small>Источник: {{ item.source.name }}</small>
+    </div>
+    <hr>
+{% endfor %}
