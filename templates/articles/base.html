@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Мой Новостной Сервис</title>
+</head>
+<body>
+    <nav>
+        <a href="{% url 'article_list' %}"><strong>Наш артико</strong></a> | 
+        <a href="{% url 'external_news' %}"><strong>Новости USA</strong></a> | 
+        <a href="/admin/">Админ-панель</a>
+    </nav>
+    <hr>
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>

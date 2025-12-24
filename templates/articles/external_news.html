@@ -1,16 +1,13 @@
-<h1>Новости РФ</h1>
+{% extends 'articles/base.html' %}
 
-{% if news %}
+{% block content %}
+    <h1>Свежие новости из USA (API)</h1>
     {% for item in news %}
         <div>
             <h3>{{ item.title }}</h3>
             <p>{{ item.description }}</p>
-            <hr>
+            <a href="{{ item.url }}" target="_blank">Читать источник</a>
         </div>
+        <hr>
     {% endfor %}
-{% else %}
-    <p>Новостей пока нет или ошибка API.</p>
-    {% if message %}
-        <p style="color: red;">Ошибка: {{ message }}</p>
-    {% endif %}
-{% endif %}
+{% endblock %}

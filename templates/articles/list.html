@@ -1,14 +1,15 @@
-<h1>Статьи</h1>
-<a href="{% url 'article_create' %}">Наш артико</a> | 
-<a href="{% url 'external_news' %}">Новости РФ (из API)</a>
-<hr>
+{% extends 'articles/base.html' %}
 
-<ul>
+{% block content %}
+    <h1>Наши эксклюзивные статьи</h1>
     {% for article in articles %}
-    <li>
-        <strong>{{ article.title }}</strong>
-        <p>{{ article.content|truncatewords:20 }}</p>
-        </li>
-    <hr>
+        <div style="margin-bottom: 20px;">
+            <h2>{{ article.title }}</h2>
+            <p>{{ article.content }}</p>
+            <small>{{ article.created_at }}</small>
+        </div>
+        <hr>
+    {% empty %}
+        <p>Статей нет. Добавьте их в админке.</p>
     {% endfor %}
-</ul>
+{% endblock %}
