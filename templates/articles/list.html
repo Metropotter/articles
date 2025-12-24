@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Статьи и новости</title>
+</head>
+<body>
+    <h1>Статьи и новости</h1>
+    
+    <div>
+        <a href="/articles/">Главная</a> |
+        <a href="/articles/create/">Добавить статью</a> |
+        <a href="/articles/fetch-news/">Загрузить новости</a>
+    </div>
+    
+    <hr>
+    
+    <h2>Все статьи ({{ articles|length }})</h2>
+    
+    {% if articles %}
+        {% for article in articles %}
+            <div>
+                <h3>{{ article.title }}</h3>
+                <p><strong>Источник:</strong> {{ article.source }}</p>
+                <p><strong>Дата:</strong> {{ article.published_at|date:"d.m.Y H:i" }}</p>
+                <p>{{ article.description }}</p>
+                <p>
+                    {% if article.url != '#' %}
+                        <a href="{{ article.url }}" target="_blank">Оригинал</a> |
+                    {% endif %}
+                    <a href="/articles/{{ article.id }}/edit/">Редактировать</a>
+                </p>
+                <hr>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>Нет статей. <a href="/articles/fetch-news/">Загрузить новости из API</a> или 
+           <a href="/articles/create/">создать статью вручную</a>.</p>
+    {% endif %}
+    
+</body>
+</html>
