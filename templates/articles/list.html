@@ -1,10 +1,14 @@
-<h1>Мои статьи</h1>
-<a href="{% url 'article_create' %}">Создать новую</a> | 
+<h1>Статьи</h1>
+<a href="{% url 'article_create' %}">Наш артико</a> | 
 <a href="{% url 'external_news' %}">Новости РФ (из API)</a>
 <hr>
-{% for art in articles %}
-    <h3>{{ art.title }}</h3>
-    <p>{{ art.content|truncatewords:20 }}</p>
-    <a href="{% url 'article_edit' art.pk %}">Редактировать</a>
+
+<ul>
+    {% for article in articles %}
+    <li>
+        <strong>{{ article.title }}</strong>
+        <p>{{ article.content|truncatewords:20 }}</p>
+        </li>
     <hr>
-{% endfor %}
+    {% endfor %}
+</ul>
